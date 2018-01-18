@@ -18,10 +18,10 @@ db = SQLAlchemy(app)
 
 def hotp():
     global counter
-    key = os.environ['HOTP_KEY'].encode('utf-8')
-    count_str = str(counter).encode('utf-8')
+    key = os.environ['HOTP_KEY'].encode('ascii')
+    count_str = str(counter).encode('ascii')
     counter += 1
-    hex_str = HMAC(key, count_str, 'sha512').hexdigest()[-8:]
+    hex_str = HMAC(key, count_str, 'sha1').hexdigest()[-8:]
     return str(int(hex_str, 16) % (10**8))
 
 
