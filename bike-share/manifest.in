@@ -1,0 +1,3 @@
+graft bike-share/templates
+graft bike-share/static
+include bike-share/schema.sql

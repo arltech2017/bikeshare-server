@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+    <div class = "shadow">
+        <div class = "head" align = "center">
+            <h1>Sign In</h1>
+        </div>
+        <div class = "login-box" align = "center">
+             <form method = "post">
+                 <label fo r= "id">
+                     <input type = "text" placeholder = "Student ID">
+                 </label><br><br>
+                 <label for = "passwd">
+                    <input type = "password" placeholder = "password">
+                 </label><br><br>
+                 <input type = "submit" value = "LOG IN">
+             </form>
+        </div>
+    </div>
+{% endblock %}

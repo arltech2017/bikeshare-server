@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - ACC Bike Share</title>
+    <!-- icons -->
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- style sheets -->
+    <link rel = "stylesheet" href = "/static/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class = "navbar">
+        <h1>ACC Bike Share</h1>
+        <a href="/login"><i class="fa fa-user"></i> login</a>
+        <a href="/about"><i class="fa fa-book"></i> about</a>
+        <a href="/"><i class = "fa fa-home"></i> home</a>
+    </div>
+    {% block body %}{% endblock %}
+</body>
+</html>
+
