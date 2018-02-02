@@ -1,0 +1,7 @@
+{
+  "name": "ACC Bike Share",
+  "short_name": "BikeBary",
+  "description": "Arlington Career Center bike share program",
+  "start_url": "/",
+  "display": "standalone"
+}
