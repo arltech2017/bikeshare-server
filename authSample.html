@@ -27,7 +27,7 @@
     // Initialize the gapi.client object, which app uses to make API requests.
     // Get API key and client ID from API Console.
     // 'scope' field specifies space-delimited list of access scopes.
-    auth2 = gapi.client.init({
+    gapi.client.init({
         'apiKey': 'AIzaSyCdKpwBnERdfa4K0qZ5FT9ZkTMQa9ihbZM',
         'discoveryDocs': [discoveryUrl],
         'clientId': '304362973762-0aca95v708o5fq2vad1lq031jv6a7v3p.apps.googleusercontent.com',
@@ -49,6 +49,9 @@
       });
       $('#revoke-access-button').click(function() {
         revokeAccess();
+      });
+      $('#checkout-bike').click(function() {
+	      $('#bike-checked').css('display', 'inline-block');
       });
 
 
@@ -79,13 +82,15 @@
     if (isAuthorized) {
       $('#sign-in-or-out-button').html('Sign out');
       $('#revoke-access-button').css('display', 'inline-block');
-      $('#auth-status').html('You are currently signed in and have granted ' +
-          'access to this app.');
+      //$('#auth-status').html('You are currently signed in and have granted ' +
+          //'access to this app.');
+      $('#checkout-bike').css('display', 'inline-block');
     } else {
       $('#sign-in-or-out-button').html('Sign In/Authorize');
       $('#revoke-access-button').css('display', 'none');
-      $('#auth-status').html('You have not authorized this app or you are ' +
-          'signed out.');
+      //$('#auth-status').html('You have not authorized this app or you are ' +
+          //'signed out.');
+      $('#checkout-bike').css('display', 'none');
     }
   }
 
@@ -98,6 +103,11 @@
         style="margin-left: 25px">Sign In/Authorize</button>
 <button id="revoke-access-button"
         style="display: none; margin-left: 25px">Revoke access</button>
+
+<button id="checkout-bike"
+        style="display: none; margin-left: 25px">Check out bike</button>
+
+<div id="bike-checked" style="display: none">You have checked out a bike!</div>
 
 <div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
 
