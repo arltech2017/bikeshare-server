@@ -55,7 +55,11 @@
       $('#revoke-access-button').click(function() {
         revokeAccess();
       });
-      $('#checkout-bike').click(function() {
+	$('#checkout-bike').click(function() {
+		  $.post({
+			  url: "test.php",
+			  headers: {"Authorization": "Bearer " + $('#myToken').val()}
+		  })
 	      $('#bike-checked').css('display', 'inline-block');
       });
 
