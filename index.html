@@ -55,12 +55,16 @@
       $('#revoke-access-button').click(function() {
         revokeAccess();
       });
+	var id_token = user.getAuthResponse().id_token;
 	$('#checkout-bike').click(function() {
-		  $.post({
-			  url: "test.php",
-			  headers: {"Authorization": "Bearer " + $('#myToken').val()}
-		  })
-	      $('#bike-checked').css('display', 'inline-block');
+		fetch('/cgi-bin/verify.js')
+			.then(function(response) {
+				return response.text();
+			})
+			.then(function(text) {
+				alert(text);
+			});
+	$('#bike-checked').css('display', 'inline-block');
       });
 
 
