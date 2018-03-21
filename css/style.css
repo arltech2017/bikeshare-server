@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Monofett');
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Monofett|Play');
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+/*====== [GLOBAL SELECTORS] =======*/
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+html{
+    background-image: url("../appicons/bg.png");
+}
+body {
+    max-width: 84.375rem;
+    margin: 0 auto;
+    width: 100%;
+}
+main {
+    background: linear-gradient(to right, #671677 , #671677 50%, #591166 50%, #591166);
+}
+main .banner {
+    display: block;
+    align-self: center;
+    text-align: center;
+    background-color: #6c7589;
+}
+.banner article {
+    margin: 0 20px;
+    background-color: #FFF;
+}
+.banner article img {
+    width: 100%;
+    max-width: 300px;
+    padding-top: 30px;
+}
+.banner article h1 {
+    font-family: 'Monofett', cursive;
+    font-family: 'Faster One', cursive;
+    color:#853491;
+    font-size: 4em;
+    font-weight: 400;
+}
+article .bottom {
+    display: block;
+    background-image: url("../appicons/title_bottom.svg");
+    height: 36px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #6c7589;
+}
+.buttons {
+    text-align: center;
+    align-self: center;
+    padding: 3vw 0;
+}
+.buttons button {
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px auto;
+    max-width: 200px;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+    font-size: 1.3em;
+    font-family:'Play', sans-serif;
+}
+.buttons button:focus,
+.buttons button:hover {
+    background-color: #6c7589; 
+    outline: 1px solid #6c7589;
+    color: #FFF;
+}
+#bike-checked {
+    display: none;
+    color: #FFF;
+}
+@media screen and (max-width: 538px) {
+  .banner article h1 {
+    font-size: 2em;
+   }
+}

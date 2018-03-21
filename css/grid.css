@@ -1,0 +1,11 @@
+@supports(display:grid) or (display: contents) {
+   main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+   }
+   .banner,
+   .buttons {
+      grid-column: 1 / -1;
+   }
+}

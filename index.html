@@ -1,6 +1,8 @@
 <html>
 <head>
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/grid.css">
   <script>
     if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').then(function() {
@@ -111,23 +113,26 @@
     setSigninStatus();
   }
 </script>
-
-<button id="sign-in-or-out-button"
-        style="margin-left: 25px">Sign In/Authorize</button>
-<button id="revoke-access-button"
-        style="display: none; margin-left: 25px">Revoke access</button>
-
-<button id="checkout-bike"
-        style="display: none; margin-left: 25px">Check out bike</button>
-
-<div id="bike-checked" style="display: none">You have checked out a bike!</div>
-
-<div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
-
+<main>
+<section class="banner">
+ <article>
+ <img src="appicons/acc.jpg" alt="logo">
+ <h1>Bikerary</h1>
+ <p class="bottom"></p>
+ </article>
+</section>
+<section class="buttons">
+<button id="sign-in-or-out-button">Sign In/Authorize</button><br>
+<button id="revoke-access-button">Revoke access</button><br>
+<button id="checkout-bike">Check out bike</button><br>
+<div id="bike-checked">You have checked out a bike!</div><br>
+<div id="auth-status"></div><br>
+</section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
+</main>
 </body>
 </html>
