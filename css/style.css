@@ -104,10 +104,6 @@ article .bottom {
     color: #000;
     cursor: pointer;
 }
-#bike-checked {
-    display: none;
-    color: #FFF;
-}
 @media screen and (max-width: 538px) {
   .banner article h1 {
     font-size: 2em;
