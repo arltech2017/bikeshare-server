@@ -64,7 +64,7 @@
 				return response.text();
 			})
 			.then(function(text) {
-				alert(text);
+				zonny_alert(text);
 			});
 	$('#bike-checked').css('display', 'inline-block');
       });
@@ -125,6 +125,12 @@
 <button id="sign-in-or-out-button">Sign In/Authorize</button><br>
 <button id="revoke-access-button">Revoke access</button><br>
 <button id="checkout-bike">Check out bike</button><br>
+<div id="myalert" class="alert">
+ <div class="alert-content">
+ <span class="close">&times;</span>
+  <p>It Works!</p>
+ </div>
+</div>
 <div id="bike-checked">You have checked out a bike!</div><br>
 <div id="auth-status"></div><br>
 </section>
