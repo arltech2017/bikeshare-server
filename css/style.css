@@ -21,8 +21,6 @@ body {
     background: linear-gradient(to right, #671677 , #671677 50%, #591166 50%, #591166);
 
 }
-main {
-}
 main .banner {
     display: block;
     align-self: center;
@@ -35,14 +33,14 @@ main .banner {
 }
 .banner article img {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
     padding-top: 30px;
 }
 .banner article h1 {
     font-family: 'Monofett', cursive;
     font-family: 'Faster One', cursive;
     color:#853491;
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 400;
 }
 article .bottom {
