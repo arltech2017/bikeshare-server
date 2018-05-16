@@ -27,6 +27,7 @@
     gapi.load('client:auth2', initClient);
   }
 
+  var id_token;
   function initClient() {
     // Retrieve the discovery document for version 3 of Google Drive API.
     // In practice, your app can retrieve one or more discovery documents.
@@ -59,15 +60,12 @@
       $('#revoke-access-button').click(function() {
         revokeAccess();
       });
-	var id_token = user.getAuthResponse().id_token;
+	id_token = user.getAuthResponse().id_token;
 	$('#checkout-bike').click(function() {
-		fetch('/cgi-bin/verify.js')
-			.then(function(response) {
-				return response.text();
-			})
-			.then(function(text) {
-				zonny_alert(text);
-			});
+		console.log(id_token);
+		fetch('/cgi-bin/verify', {method:'POST', body: id_token})
+			.then(response => response.text())
+			.then(text => zonny_alert(text));
 	$('#bike-checked').css('display', 'inline-block');
       });
 
@@ -97,6 +95,7 @@
 	
     var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {
+      id_token = user.getAuthResponse().id_token;
       $('#sign-in-or-out-button').html('Sign out');
       $('#revoke-access-button').css('display', 'inline-block');
       //$('#auth-status').html('You are currently signed in and have granted ' +
