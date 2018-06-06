@@ -11,6 +11,7 @@
 /*====== [GLOBAL SELECTORS] =======*/
 ul {
     list-style: none;
+    padding: 0;
 }
 a {
     text-decoration: none;
@@ -62,13 +63,15 @@ article .bottom {
     padding: 10px 0;
     margin: 10px auto;
     max-width: 200px;
-    cursor: pointer;
-    transition: all .3s ease 0s;
     font-size: 1.3em;
     font-family:'Play', sans-serif;
 }
-.buttons button:focus,
-.buttons button:hover {
+
+button:not([disabled]) {
+    transition: all .3s ease 0s;
+}
+.buttons button:not([disabled]):focus,
+.buttons button:not([disabled]):hover {
     background-color: #6c7589; 
     outline: 1px solid #6c7589;
     color: #FFF;
@@ -108,4 +111,17 @@ article .bottom {
   .banner article h1 {
     font-size: 2em;
    }
+   .alert-content {
+      width: 80%;
+      position: absolute;
+      top: 0;
+      left: 10%;
+      padding-top: 0px;
+      
+   }
+   .buttons li > button {
+      padding: 0;
+      margin: 2px 0;
+   }
+
 }
