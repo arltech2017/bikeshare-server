@@ -93,6 +93,13 @@ article .bottom {
     border: 1px solid #888;
     width: 30%;
 }
+.alert-content li > button {
+    color: #45d363;
+}
+.alert-content [disabled] {
+    background-color: #6c7589;
+    color: #ea504e;
+}
 .close {
     color: #000;
     float:right;
