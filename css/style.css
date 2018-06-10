@@ -93,8 +93,7 @@ article .bottom {
     width: 30%;
 }
 .alert-content [disabled] {
-    background-color: #6c7589;
-    color: #fff;
+    filter: brightness(80%);
 }
 .close {
     color: #000;
