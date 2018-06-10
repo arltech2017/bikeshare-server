@@ -57,11 +57,11 @@
 
       // Call handleAuthClick function when user clicks on
       //      "Sign In/Authorize" button.
-      $('#sign-in-or-out-button').click(function() {
-        handleAuthClick();
+      $('#sign-in').click(function() {
+        GoogleAuth.signIn();
       });
       $('#revoke-access-button').click(function() {
-        revokeAccess();
+        GoogleAuth.disconnect();
       });
 	id_token = user.getAuthResponse().id_token;
 	$('#checkout-bike').click(function() {
@@ -76,20 +76,6 @@
     });
   }
 
-  function handleAuthClick() {
-    if (GoogleAuth.isSignedIn.get()) {
-      // User is authorized and has clicked 'Sign out' button.
-      GoogleAuth.signOut();
-    } else {
-      // User is not signed in. Start Google auth flow.
-      GoogleAuth.signIn();
-    }
-  }
-
-  function revokeAccess() {
-    GoogleAuth.disconnect();
-  }
-
   function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get();
 	// My stuff here
@@ -99,17 +85,13 @@
     var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {
       id_token = user.getAuthResponse().id_token;
-      $('#sign-in-or-out-button').html('Sign out');
-      $('#revoke-access-button').css('display', 'inline-block');
-      //$('#auth-status').html('You are currently signed in and have granted ' +
-          //'access to this app.');
-      $('#checkout-bike').css('display', 'inline-block');
+      $('#sign-in').hide();
+      $('#revoke-access-button').show();
+      $('#checkout-bike').show();
     } else {
-      $('#sign-in-or-out-button').html('Sign In/Authorize');
-      $('#revoke-access-button').css('display', 'none');
-      //$('#auth-status').html('You have not authorized this app or you are ' +
-          //'signed out.');
-      $('#checkout-bike').css('display', 'none');
+      $('#sign-in').show();
+      $('#revoke-access-button').hide();
+      $('#checkout-bike').hide();
     }
   }
 
@@ -126,9 +108,9 @@
  </article>
 </section>
 <section class="buttons">
-<button id="sign-in-or-out-button">Sign In/Authorize</button><br>
-<button id="revoke-access-button">Revoke access</button><br>
-<button id="checkout-bike">Check out bike</button><br>
+<button id="sign-in">Sign In</button><br>
+<button style="display: none" id="revoke-access-button">Sign Out</button><br>
+<button style="display: none" id="checkout-bike">Check out bike</button><br>
 <div id="myalert" class="alerting">
  <div class="alert-content">
  <span class="close">&times;</span>
