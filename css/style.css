@@ -112,15 +112,14 @@ article .bottom {
    }
    .alert-content {
       width: 80%;
-      position: absolute;
-      top: 1%;
-      left: 10%;
       padding-top: 0px;
       padding-bottom: 0px;
+      height: auto;
    }
    .buttons li > button {
       padding: 0;
-      margin: 2px 0;
+      margin: .6vh 0;
+      max-width: 100%;
    }
 
 }
