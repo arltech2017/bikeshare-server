@@ -64,16 +64,19 @@
         GoogleAuth.disconnect();
       });
 	id_token = user.getAuthResponse().id_token;
-	$('#checkout-bike').click(function() {
-		console.log(id_token);
-		fetch('/cgi-bin/verify', {method:'POST', body: id_token})
+	Array.from($("#myalert_choose button")).forEach((value, i) => 
+		value.onclick = () =>
+			fetch('/cgi-bin/verify', {method: 'POST', body: 
+				{"token": id_token, "bike_index": i}
+			})
 			.then(response => response.text())
-			.then(text => zonny_alert(text));
+			.then(text => zonny_alert("myalert_number", text))
+	)
+	$('#checkout-bike').click(() => zonny_alert("myalert_choose"))
 	$('#bike-checked').css('display', 'inline-block');
       });
 
 
-    });
   }
 
   function setSigninStatus(isSignedIn) {
@@ -111,7 +114,7 @@
 <button id="sign-in">Sign In</button><br>
 <button style="display: none" id="revoke-access-button">Sign Out</button><br>
 <button style="display: none" id="checkout-bike">Check out bike</button><br>
-<div id="myalert" class="alerting">
+<div id="myalert_choose" class="alerting">
  <div class="alert-content">
  <span class="close">&times;</span>
   <ul>
@@ -128,6 +131,12 @@
     <li><button>Bike11</button></li>
     <li><button>Bike12</button></li>
   </ul>
+ </div>
+</div>
+<div id="myalert_number" class="alerting">
+ <div class="alert-content">
+ <span class="close">&times;</span>
+ <p>test</p>
  </div>
 </div>
 <div id="auth-status"></div><br>
