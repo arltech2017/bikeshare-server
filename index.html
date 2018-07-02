@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="Arlington Career Center bike share program">
+  <meta name="theme-color" content="aliceblue">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/grid.css">
+  <link rel="icon" href="favicon.ico" sizes="32x32" type="image/ico">
   <script>
     if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').then(function() {
@@ -16,9 +19,15 @@
   </script>
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="BikeShare">
+  <meta name="apple-mobile-web-app-title" content="ACC Bike Share">
   <link rel="apple-touch-icon" sizes="512x512" href="appicons/icon512.png">
   <link rel="apple-touch-icon" sizes="192x192" href="appicons/icon192.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="appicons/icon144.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="appicons/icon96.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="appicons/icon72.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="appicons/icon48.png">
+  <link rel="apple-touch-icon" sizes="36x36" href="appicons/icon36.png">
+  <title>ACC Bike Share</title>
 </head>
 <body>
   <script>
@@ -64,10 +73,10 @@
         GoogleAuth.disconnect();
       });
 	id_token = user.getAuthResponse().id_token;
-	Array.from($("#myalert_choose button")).forEach((value, i) => 
+	Array.from($("#myalert_choose button")).forEach((value, i) =>
 		value.onclick = () =>
-			fetch('/cgi-bin/verify', {method: 'POST', body: 
-				{"token": id_token, "bike_index": i}
+			fetch('/cgi-bin/verify', {method: 'POST', body:
+				JSON.stringify({"token": id_token, "bike_index": i})
 			})
 			.then(response => response.text())
 			.then(text => zonny_alert("myalert_number", text))
@@ -84,7 +93,7 @@
 	// My stuff here
 	console.log(user);
 	// End my stuff
-	
+
     var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {
       id_token = user.getAuthResponse().id_token;

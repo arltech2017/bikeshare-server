@@ -1,11 +1,33 @@
 {
   "name": "ACC Bike Share",
-  "short_name": "BikeBary",
+  "short_name": "Bikerary",
   "description": "Arlington Career Center bike share program",
   "start_url": "/",
+  "lang": "en-US",
+  "dir": "ltr",
   "display": "standalone",
   "icons": [
-    {
+    { 
+      "src": "appicons/icon36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    }, {
+      "src": "appicons/icon48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }, {
+      "src": "appicons/icon72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }, {
+      "src": "appicons/icon96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }, {
+      "src": "appicons/icon144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
       "src": "appicons/icon192.png",
       "sizes": "192x192",
       "type": "image/png"
