@@ -9,6 +9,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/grid.css">
+  <link rel="icon" href="favicon.ico" sizes="32x32" type="image/ico">
   <script>
     if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').then(function() {
@@ -72,9 +73,9 @@
         GoogleAuth.disconnect();
       });
 	id_token = user.getAuthResponse().id_token;
-	Array.from($("#myalert_choose button")).forEach((value, i) => 
+	Array.from($("#myalert_choose button")).forEach((value, i) =>
 		value.onclick = () =>
-			fetch('/cgi-bin/verify', {method: 'POST', body: 
+			fetch('/cgi-bin/verify', {method: 'POST', body:
 				JSON.stringify({"token": id_token, "bike_index": i})
 			})
 			.then(response => response.text())
@@ -92,7 +93,7 @@
 	// My stuff here
 	console.log(user);
 	// End my stuff
-	
+
     var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {
       id_token = user.getAuthResponse().id_token;
